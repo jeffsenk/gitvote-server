@@ -1,0 +1,16 @@
+{
+  "name": "gitvote-server",
+  "version": "1.0.0",
+  "description": "api server for gitvote",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "jeffsenk",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "firebase": "^4.6.1"
+  }
+}
