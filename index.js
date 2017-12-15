@@ -194,6 +194,10 @@ app.get('/members',function(req,res){
   });
 });
 
+app.get('/test',function(req,res){
+  res.send({response:'you can connect!'});
+});
+
 app.listen(3001,function(){
   console.log('listening on port 3001');
 });
