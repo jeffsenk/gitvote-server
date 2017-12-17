@@ -6,9 +6,11 @@ var firebase = require('firebase');
 const Config = require('./Config');
 var fire = firebase.initializeApp(Config.config);
 var database = fire.database();
+var cors = require('cors');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(cors());
 
 app.post('/newUser',function(req,res){
   //create new user so key matches auth id
