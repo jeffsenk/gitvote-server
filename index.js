@@ -189,6 +189,11 @@ app.get('/proposals/:id',function(req,res){
   });
 });
 
-app.listen(3001,function(){
-  console.log('listening on port 3001');
+app.get('/',function(req,res){
+  res.send('connected to gitvote api server version 0.0')
+});
+
+const PORT = process.env.PORT || 8080;
+app.listen(PORT,function(){
+  console.log('listening on port', PORT);
 });
