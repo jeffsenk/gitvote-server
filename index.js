@@ -7,6 +7,8 @@ const Config = require('./Config');
 var fire = firebase.initializeApp(Config.config);
 var database = fire.database();
 var cors = require('cors');
+var SendGrid = require('./sendGrid')
+var sendGrid = new SendGrid();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -35,6 +37,7 @@ app.post('/newProposal',function(req,res){
   let newKey = database.ref('Proposals').push(req.body).key;
   database.ref('Teams/'+req.body.team+'/Proposals/'+newKey).set('true');
   database.ref('Users/'+req.body.userKey+'/Proposals/'+newKey).set('true');
+  sendGrid.newProposal(database,req.body.team);
   res.sendStatus(200);
 });
 
@@ -132,6 +135,7 @@ app.post('/addMember',function(req,res){
       }
     });
   });
+  sendGrid.newMember(database,req.body.teamKey,req.body.email);
   res.sendStatus(200);
 });
 

@@ -8,15 +8,16 @@
     "test": "test"
   },
   "author": "jeffsenk",
-  "repository":{
-    "type":"git",
-    "url":"https://github.com/jeffsenk/gitvote-client.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeffsenk/gitvote-client.git"
   },
   "engines": {
     "node": ">4.3.2"
   },
   "license": "MIT",
   "dependencies": {
+    "@sendgrid/mail": "^6.1.4",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.2",
