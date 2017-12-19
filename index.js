@@ -24,8 +24,7 @@ app.post('/newUser',function(req,res){
     users.forEach(function(user){
       if(user.val().email == req.body.email && !user.val().name){
         database.ref('Users/'+req.body.userKey+'/Invitations').set(user.val().Invitations);
-        match = true;
-        console.log('match found')
+        console.log('match found',user.val().email)
         user.ref.remove();
       }
     });
